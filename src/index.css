@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark professional theme with rich gradients */
+    --background: 220 28% 8%;  /* Deep navy #0a0f1e */
+    --background-elevated: 220 24% 12%;  /* Slightly lighter for cards */
+    --foreground: 210 40% 98%;
+    
+    --card: 220 24% 12%;  /* #1a1f35 */
+    --card-foreground: 210 40% 98%;
+    --card-border: 220 20% 18%;  /* Subtle border */
+    
+    --popover: 220 24% 12%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Primary gradient: Blue to Purple */
+    --primary: 217 91% 60%;  /* Electric blue #3b82f6 */
+    --primary-glow: 262 83% 58%;  /* Purple #8b5cf6 */
+    --primary-foreground: 210 40% 98%;
+    
+    /* Secondary with subtle purple tint */
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 220 18% 15%;
+    --muted-foreground: 215 20% 65%;
+    
+    /* Accent: Cyan highlight */
+    --accent: 189 94% 43%;  /* Cyan #06b6d4 */
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --success: 142 76% 36%;  /* Green for match scores */
+    --success-foreground: 210 40% 98%;
+    
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --input-focus: 217 91% 60%;
+    --ring: 217 91% 60%;
+    
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(262 83% 58%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220 28% 8%) 0%, hsl(220 24% 12%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(189 94% 43%) 0%, hsl(217 91% 60%) 100%);
+    
+    /* Glass-morphism effect */
+    --glass-background: hsla(220, 24%, 12%, 0.7);
+    --glass-border: hsla(210, 40%, 98%, 0.1);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px hsla(220, 28%, 4%, 0.3);
+    --shadow-md: 0 4px 12px hsla(220, 28%, 4%, 0.4);
+    --shadow-lg: 0 8px 24px hsla(220, 28%, 4%, 0.5);
+    --shadow-glow: 0 0 40px hsla(217, 91%, 60%, 0.3);
+    
+    --sidebar-background: 220 28% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 220 24% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+}
+
+@layer components {
+  /* Glass-morphism card */
+  .glass-card {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Glow effect */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Hover scale animation */
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
